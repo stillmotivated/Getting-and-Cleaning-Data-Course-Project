@@ -1,0 +1,53 @@
+---
+title: "Codebook"
+author: "Daria Osokina"
+date: "14 5 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+```
+
+## Data Dictionary - Final Project Week 4
+
+
+
+```{r}
+library(rmarkdown)
+library(knitr)
+
+
+variable_names <- c("X_train", "X_test", "X_merged", "columnnames", "columnnamesvector", "columnnameslist", "secondElemennt", "columnnamesclean", "X_mergedSelection", "y_train", "y_test", "y_merged", "Xy_merged", "subject_train", "subject_test", "subject_merged", "XySubject_merged", "activity_labels", "ActivityLabelsVector", "ActivityLabelList", "activity_labels_clean", "Xy_merged2", "AVG_Calculation")
+
+
+variable_description <- c("Training set. Data downloaded from the 'X_train.txt' file with 7352 rows and 561 columns",
+                          "Test set. Data downloaded from the 'X_test.txt' file with 2947 rows and 561 columns",
+                          "Training and test data sets, merged via rbind(), with 7352 + 2947 = 10299 rows and 561 columns", 
+                          "Variable names from the 'features.txt' file, with 561 variable names", 
+                          "Variable names from the 'features.txt' file, converted to a vector", 
+                          "Variable names from the 'features.txt' file, splitted into two parts - number and actual name", 
+                          "Function reading the second element of the list's elements", 
+                          "Variable names from the 'features.txt' file, containing only actual name", 
+                          "Training and test data sets, merged via rbind() and containing only columns with the measurements on the mean and standard deviation", 
+                          "Training set (containing activities). Data downloaded from the 'y_train.txt' file, with 7352 rows and 1 column",
+"Test set (containing activities). Data downloaded from the 'y_test.txt' file, with 2947 rows and 1 column", 
+"Training and test data activity sets, merged via rbind(), with 7352 + 2947 = 10299 rows and 1 column",
+"X_mergedSelection and y_merged data sets, merged via cbind(), with 1029 rows and 87 columns", 
+"Training set (containing subjects). Data downloaded from the 'subject_train' file, with 7352 rows and 1 column", 
+"Test set (containing subjects). Data downloaded from the 'subject_test' file, with 2947 rows and 1 column", 
+"Training and test data subject sets, merged via rbind(), with 7352 + 2947 = 10299 rows and 1 column", 
+"Xy_merged and subject_merged data sets, merged via cbind(), with 10299 rows and 88 columns", 
+"Data, read from the file 'activity_labels.txt', with 6 activity labels", 
+"Data, read from the file 'activity_labels.txt', converted to a vector", 
+"Data, read from the file 'activity_labels.txt', splitted into two parts - number and actual name", 
+"Data, read from the file 'activity_labels.txt', containing only actual name", 
+"XySubject_merged data set where the Activitiies numbers (1 to 6) are replaced by descriptive activity names (SITTING, STANDING etc.), with 10299 rows and 88 columns", 
+"Final dataset with the average of each variable for each activity and each subject, with 180 rows and 88 columns")
+
+
+variabledictionary <-data.frame(VariableName = variable_names, VariableDescription = variable_description)
+
+knitr::kable(variabledictionary, "pipe", align = "ll")
+```
+
